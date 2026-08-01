@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+    <title>{{ app_name }}</title>
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', path='/css/style.css') }}"
+    >
+</head>
+
+<body>
+    <div class="app-shell">
+
+        <aside class="sidebar">
+            <div class="brand">
+                <div class="brand-symbol">PHK</div>
+
+                <div>
+                    <strong>PHK Studio</strong>
+                    <span>Scientific Platform</span>
+                </div>
+            </div>
+
+            <nav class="navigation">
+                <a class="nav-item active" href="#">
+                    Dashboard
+                </a>
+
+                <a class="nav-item" href="#">
+                    Projetos
+                </a>
+
+                <a class="nav-item" href="#">
+                    Pesquisa científica
+                </a>
+
+                <a class="nav-item" href="#">
+                    Roteiros
+                </a>
+
+                <a class="nav-item" href="#">
+                    Storyboards
+                </a>
+
+                <a class="nav-item" href="#">
+                    Slides
+                </a>
+
+                <a class="nav-item" href="#">
+                    Animações
+                </a>
+
+                <a class="nav-item" href="#">
+                    Vídeos
+                </a>
+            </nav>
+        </aside>
+
+        <main class="main-content">
+            <header class="topbar">
+                <div>
+                    <span class="eyebrow">PHARMA KNOWLEDGE HUB</span>
+                    <h1>{{ app_name }}</h1>
+                </div>
+
+                <span class="version">
+                    v{{ version }}
+                </span>
+            </header>
+
+            <section class="hero">
+                <div>
+                    <span class="hero-label">
+                        Scientific Content Production Platform
+                    </span>
+
+                    <h2>
+                        Transforme evidências científicas em conteúdo educacional.
+                    </h2>
+
+                    <p>
+                        {{ tagline }}
+                    </p>
+
+                    <button id="new-project-button">
+                        Criar novo projeto
+                    </button>
+                </div>
+            </section>
+
+            <section class="dashboard-grid">
+
+                <article class="dashboard-card">
+                    <span>Projetos</span>
+                    <strong>0</strong>
+                    <p>Projetos científicos cadastrados.</p>
+                </article>
+
+                <article class="dashboard-card">
+                    <span>Episódios</span>
+                    <strong>0</strong>
+                    <p>Conteúdos em produção.</p>
+                </article>
+
+                <article class="dashboard-card">
+                    <span>Referências</span>
+                    <strong>0</strong>
+                    <p>Fontes científicas registradas.</p>
+                </article>
+
+                <article class="dashboard-card">
+                    <span>Renderizações</span>
+                    <strong>0</strong>
+                    <p>Vídeos concluídos.</p>
+                </article>
+
+            </section>
+        </main>
+    </div>
+
+    <script src="{{ url_for('static', path='/js/app.js') }}"></script>
+</body>
+</html>

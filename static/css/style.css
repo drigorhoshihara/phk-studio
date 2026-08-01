@@ -1,0 +1,520 @@
+/* ======================================================
+   PHK Studio - Scientific Content Production Platform
+   style.css
+   ====================================================== */
+
+:root{
+
+    --primary:#0F4C81;
+    --primary-dark:#0A3557;
+    --primary-light:#2E86C1;
+
+    --accent:#27AE60;
+
+    --bg:#EEF3F8;
+    --surface:#FFFFFF;
+
+    --text:#233142;
+    --text-light:#5D6D7E;
+
+    --border:#D8E3EC;
+
+    --shadow:0 10px 25px rgba(0,0,0,.08);
+
+    --radius:18px;
+
+    --sidebar-width:270px;
+
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+
+    scroll-behavior:smooth;
+
+}
+
+body{
+
+    font-family:
+        "Segoe UI",
+        Roboto,
+        Arial,
+        sans-serif;
+
+    background:var(--bg);
+
+    color:var(--text);
+
+}
+
+/* ====================================================== */
+/* APP */
+/* ====================================================== */
+
+.app-shell{
+
+    display:flex;
+
+    min-height:100vh;
+
+}
+
+/* ====================================================== */
+/* SIDEBAR */
+/* ====================================================== */
+
+.sidebar{
+
+    width:var(--sidebar-width);
+
+    background:linear-gradient(
+        180deg,
+        var(--primary-dark),
+        var(--primary)
+    );
+
+    color:white;
+
+    display:flex;
+
+    flex-direction:column;
+
+    padding:30px;
+
+    box-shadow:var(--shadow);
+
+}
+
+.logo{
+
+    font-size:30px;
+
+    font-weight:800;
+
+    margin-bottom:8px;
+
+}
+
+.logo-subtitle{
+
+    font-size:13px;
+
+    opacity:.8;
+
+    margin-bottom:35px;
+
+}
+
+.sidebar nav{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:10px;
+
+}
+
+.sidebar nav a{
+
+    color:white;
+
+    text-decoration:none;
+
+    padding:12px 15px;
+
+    border-radius:10px;
+
+    transition:.25s;
+
+    font-weight:500;
+
+}
+
+.sidebar nav a:hover{
+
+    background:rgba(255,255,255,.12);
+
+}
+
+/* ====================================================== */
+/* MAIN */
+/* ====================================================== */
+
+.main-content{
+
+    flex:1;
+
+    padding:45px;
+
+}
+
+/* ====================================================== */
+/* HERO */
+/* ====================================================== */
+
+.hero{
+
+    background:linear-gradient(
+        135deg,
+        var(--primary),
+        var(--primary-light)
+    );
+
+    color:white;
+
+    padding:50px;
+
+    border-radius:var(--radius);
+
+    box-shadow:var(--shadow);
+
+    margin-bottom:40px;
+
+}
+
+.hero h1{
+
+    font-size:42px;
+
+    margin-bottom:10px;
+
+}
+
+.hero .version{
+
+    display:inline-block;
+
+    margin-top:12px;
+
+    background:rgba(255,255,255,.15);
+
+    padding:8px 18px;
+
+    border-radius:50px;
+
+    font-size:14px;
+
+}
+
+.hero p{
+
+    margin-top:20px;
+
+    max-width:800px;
+
+    line-height:1.7;
+
+    font-size:18px;
+
+}
+
+/* ====================================================== */
+/* BUTTON */
+/* ====================================================== */
+
+.primary-button{
+
+    margin-top:30px;
+
+    border:none;
+
+    background:white;
+
+    color:var(--primary);
+
+    padding:15px 28px;
+
+    border-radius:12px;
+
+    cursor:pointer;
+
+    font-size:16px;
+
+    font-weight:700;
+
+    transition:.25s;
+
+}
+
+.primary-button:hover{
+
+    transform:translateY(-2px);
+
+    box-shadow:0 10px 20px rgba(0,0,0,.15);
+
+}
+
+/* ====================================================== */
+/* DASHBOARD */
+/* ====================================================== */
+
+.dashboard{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(
+            auto-fit,
+            minmax(240px,1fr)
+        );
+
+    gap:25px;
+
+}
+
+.card{
+
+    background:var(--surface);
+
+    border-radius:var(--radius);
+
+    padding:28px;
+
+    box-shadow:var(--shadow);
+
+    transition:.25s;
+
+    border:1px solid var(--border);
+
+}
+
+.card:hover{
+
+    transform:translateY(-4px);
+
+}
+
+.card h3{
+
+    font-size:18px;
+
+    color:var(--text-light);
+
+    margin-bottom:18px;
+
+}
+
+.metric{
+
+    font-size:44px;
+
+    font-weight:800;
+
+    color:var(--primary);
+
+}
+
+.card small{
+
+    display:block;
+
+    margin-top:15px;
+
+    color:var(--text-light);
+
+    line-height:1.5;
+
+}
+
+/* ====================================================== */
+/* SECTION */
+/* ====================================================== */
+
+.section{
+
+    margin-top:45px;
+
+}
+
+.section-title{
+
+    font-size:30px;
+
+    margin-bottom:25px;
+
+    color:var(--primary-dark);
+
+}
+
+/* ====================================================== */
+/* GRID */
+/* ====================================================== */
+
+.grid{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(
+            auto-fit,
+            minmax(300px,1fr)
+        );
+
+    gap:25px;
+
+}
+
+/* ====================================================== */
+/* MODULE */
+/* ====================================================== */
+
+.module{
+
+    background:white;
+
+    border-radius:var(--radius);
+
+    padding:25px;
+
+    border:1px solid var(--border);
+
+    box-shadow:var(--shadow);
+
+}
+
+.module h2{
+
+    font-size:22px;
+
+    margin-bottom:15px;
+
+}
+
+.module p{
+
+    color:var(--text-light);
+
+    line-height:1.7;
+
+}
+
+/* ====================================================== */
+/* TABLE */
+/* ====================================================== */
+
+table{
+
+    width:100%;
+
+    border-collapse:collapse;
+
+}
+
+th{
+
+    background:var(--primary);
+
+    color:white;
+
+    padding:15px;
+
+}
+
+td{
+
+    padding:14px;
+
+    border-bottom:1px solid #ECECEC;
+
+}
+
+tr:hover{
+
+    background:#F8FAFC;
+
+}
+
+/* ====================================================== */
+/* FORM */
+/* ====================================================== */
+
+input,
+textarea,
+select{
+
+    width:100%;
+
+    padding:14px;
+
+    border-radius:10px;
+
+    border:1px solid var(--border);
+
+    margin-top:8px;
+
+    margin-bottom:20px;
+
+    font-size:15px;
+
+}
+
+input:focus,
+textarea:focus,
+select:focus{
+
+    outline:none;
+
+    border-color:var(--primary);
+
+}
+
+/* ====================================================== */
+/* FOOTER */
+/* ====================================================== */
+
+.footer{
+
+    margin-top:70px;
+
+    color:#7A8A9A;
+
+    text-align:center;
+
+    font-size:14px;
+
+}
+
+/* ====================================================== */
+/* RESPONSIVE */
+/* ====================================================== */
+
+@media(max-width:900px){
+
+    .app-shell{
+
+        flex-direction:column;
+
+    }
+
+    .sidebar{
+
+        width:100%;
+
+    }
+
+    .main-content{
+
+        padding:25px;
+
+    }
+
+    .hero{
+
+        padding:35px;
+
+    }
+
+    .hero h1{
+
+        font-size:32px;
+
+    }
+
+}
