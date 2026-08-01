@@ -1,19 +1,39 @@
+from collections.abc import AsyncIterator
+from contextlib import asynccontextmanager
 from pathlib import Path
 
 from fastapi import FastAPI
 from fastapi.staticfiles import StaticFiles
 
+from app.kernel.bootstrap import (
+    KernelContext,
+    bootstrap_kernel,
+    shutdown_kernel,
+)
 from app.routers import health, pages
 
 
 BASE_DIR = Path(__file__).resolve().parent
 
 
+@asynccontextmanager
+async def lifespan(
+    application: FastAPI,
+) -> AsyncIterator[None]:
+    kernel = await bootstrap_kernel()
+    application.state.kernel = kernel
+
+    yield
+
+    await shutdown_kernel(kernel)
+
+
 def create_application() -> FastAPI:
     application = FastAPI(
         title="PHK Studio",
         description="Scientific Content Production Platform",
-        version="0.2.0",
+        version="0.3.0",
+        lifespan=lifespan,
     )
 
     application.mount(

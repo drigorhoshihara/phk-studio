@@ -1,4 +1,6 @@
-from fastapi import APIRouter
+from typing import Any
+
+from fastapi import APIRouter, Request
 
 
 router = APIRouter(
@@ -8,10 +10,12 @@ router = APIRouter(
 
 
 @router.get("")
-async def health_check() -> dict[str, str]:
+async def health_check(request: Request) -> dict[str, Any]:
+    kernel = request.app.state.kernel
+    snapshot = kernel.health_monitor.snapshot()
+
     return {
-        "status": "ok",
-        "application": "PHK Studio",
-        "version": "0.2.0",
-        "security_module": "PHK Shield initialized",
+        "application": kernel.settings.app_name,
+        "version": kernel.settings.app_version,
+        **snapshot,
     }
