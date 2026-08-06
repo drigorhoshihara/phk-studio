@@ -1,0 +1,178 @@
+==============================================================================
+app.clinical_pharmacy_engine.assessment.models
+==============================================================================
+CLASS: Any
+CLASS: AssessmentAlert
+  code: str
+  title: str
+  description: str
+  risk_level: ClinicalRiskLevel
+  related_medications: list[str]
+  evidence: list[str]
+  requires_acknowledgement: bool
+  requires_immediate_action: bool
+  id: str
+  metadata: dict[str, Any]
+CLASS: AssessmentDataQuality
+  complete: bool
+  missing_fields: list[str]
+  invalid_fields: list[str]
+  warnings: list[str]
+  confidence: float
+CLASS: AssessmentStatus
+CLASS: BaseAssessmentResult
+  assessment_type: str
+  status: AssessmentStatus
+  risk_level: ClinicalRiskLevel
+  summary: str
+  alerts: list[AssessmentAlert]
+  recommendations: list[ClinicalRecommendation]
+  data_quality: AssessmentDataQuality
+  references: list[str]
+  requires_pharmacist_review: bool
+  requires_prescriber_contact: bool
+  requires_referral: bool
+  requires_emergency_referral: bool
+  calculated_at: datetime
+  id: str
+  metadata: dict[str, Any]
+CLASS: ClinicalRecommendation
+  title: str
+  description: str
+  category: RecommendationCategory
+  priority: RecommendationPriority
+  rationale: str | None
+  related_medications: list[str]
+  monitoring_parameters: list[str]
+  references: list[str]
+  requires_pharmacist_review: bool
+  requires_prescriber_contact: bool
+  requires_immediate_action: bool
+  id: str
+  metadata: dict[str, Any]
+CLASS: ClinicalRiskLevel
+CLASS: Enum
+CLASS: RecommendationCategory
+CLASS: RecommendationPriority
+CLASS: datetime
+CLASS: timezone
+
+==============================================================================
+app.clinical_pharmacy_engine.assessment.hepatic
+==============================================================================
+
+==============================================================================
+app.clinical_pharmacy_engine.assessment.cardiovascular
+==============================================================================
+CLASS: CardiovascularAssessmentEngine
+CLASS: CardiovascularAssessmentInput
+  age_years: float | None
+  biological_sex: CardiovascularSex
+  ethnicity_or_population_group: str | None
+  country_or_region: str | None
+  smoking_status: SmokingStatus
+  diabetes_status: DiabetesStatus
+  prevention_context: PreventionContext
+  blood_pressure_measurements: list[BloodPressureMeasurement]
+  treated_hypertension: bool
+  lipid_profile: LipidProfile
+  body_mass_index: float | None
+  waist_circumference_cm: float | None
+  egfr_ml_min_1_73m2: float | None
+  creatinine_clearance_ml_min: float | None
+  family_history_premature_cvd: bool
+  established_ascvd: bool
+  prior_myocardial_infarction: bool
+  prior_stroke_or_tia: bool
+  peripheral_arterial_disease: bool
+  chronic_kidney_disease: bool
+  heart_failure: bool
+  atrial_fibrillation: bool
+  atrial_fibrillation_type: AtrialFibrillationType
+  vascular_disease: bool
+  hypertension_history: bool
+  previous_major_bleeding: bool
+  active_bleeding: bool
+  labile_inr: bool
+  alcohol_use_risk: bool
+  liver_disease: bool
+  renal_disease: bool
+  echocardiogram: EchocardiogramData
+  ecg: ECGData
+  nyha_class: NYHAClass
+  chest_pain_present: bool
+  dyspnea_present: bool
+  syncope_present: bool
+  palpitations_present: bool
+  edema_present: bool
+  orthopnea_present: bool
+  pulmonary_rales_present: bool
+  jugular_venous_distension_present: bool
+  troponin_value: float | None
+  troponin_upper_reference_limit: float | None
+  bnp_pg_ml: float | None
+  nt_probnp_pg_ml: float | None
+  potassium_mmol_l: float | None
+  magnesium_mg_dl: float | None
+  calcium_mg_dl: float | None
+  current_anticoagulant: AnticoagulantType
+  medications: list[str]
+  qt_prolonging_medications: list[str]
+  antiplatelet_medications: list[str]
+  diagnoses: list[str]
+  symptoms: list[str]
+  metadata: dict[str, Any]
+CLASS: CardiovascularAssessmentResult
+  assessment_type: str
+  status: AssessmentStatus
+  risk_level: ClinicalRiskLevel
+  summary: str
+  alerts: list[AssessmentAlert]
+  recommendations: list[ClinicalRecommendation]
+  data_quality: AssessmentDataQuality
+  references: list[str]
+  requires_pharmacist_review: bool
+  requires_prescriber_contact: bool
+  requires_referral: bool
+  requires_emergency_referral: bool
+  calculated_at: datetime
+  id: str
+  metadata: dict[str, Any]
+  risk_estimates: list[CardiovascularRiskEstimate]
+  overall_cardiovascular_risk: CardiovascularRiskCategory
+  hypertension: HypertensionAssessmentResult
+  dyslipidemia: DyslipidemiaAssessmentResult
+  heart_failure: HeartFailureAssessmentResult
+  acute_coronary: AcuteCoronaryAssessmentResult
+  anticoagulation: AnticoagulationAssessmentResult
+  qt_assessment: QTAssessmentResult
+  secondary_prevention: bool
+  medication_review_required: bool
+  urgent_medical_evaluation_required: bool
+  emergency_referral_required: bool
+  cardiology_review_suggested: bool
+  calculated_values: dict[str, float]
+CLASS: CardiovascularEngineConfig
+  enable_hypertension: bool
+  enable_ascvd: bool
+  enable_framingham: bool
+  enable_score2: bool
+  enable_dyslipidemia: bool
+  enable_qt: bool
+  enable_anticoagulation: bool
+  enable_heart_failure: bool
+  enable_acute_coronary: bool
+  pce_population_group: PCEPopulationGroup
+  score2_region: SCORE2Region
+  anticoagulation_guideline: AnticoagulationGuideline
+  continue_on_module_error: bool
+  include_invalid_risk_estimates: bool
+  references: list[str]
+CLASS: CardiovascularModuleExecution
+  module_name: str
+  state: CardiovascularModuleState
+  message: str
+  error_type: str | None
+  error_message: str | None
+  metadata: dict[str, Any]
+CLASS: CardiovascularModuleState

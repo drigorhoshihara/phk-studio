@@ -1,0 +1,121 @@
+
+==============================================================================
+CardiovascularAssessmentInput
+==============================================================================
+age_years: float | None
+biological_sex: CardiovascularSex
+ethnicity_or_population_group: str | None
+country_or_region: str | None
+smoking_status: SmokingStatus
+diabetes_status: DiabetesStatus
+prevention_context: PreventionContext
+blood_pressure_measurements: list[BloodPressureMeasurement]
+treated_hypertension: bool
+lipid_profile: LipidProfile
+body_mass_index: float | None
+waist_circumference_cm: float | None
+egfr_ml_min_1_73m2: float | None
+creatinine_clearance_ml_min: float | None
+family_history_premature_cvd: bool
+established_ascvd: bool
+prior_myocardial_infarction: bool
+prior_stroke_or_tia: bool
+peripheral_arterial_disease: bool
+chronic_kidney_disease: bool
+heart_failure: bool
+atrial_fibrillation: bool
+atrial_fibrillation_type: AtrialFibrillationType
+vascular_disease: bool
+hypertension_history: bool
+previous_major_bleeding: bool
+active_bleeding: bool
+labile_inr: bool
+alcohol_use_risk: bool
+liver_disease: bool
+renal_disease: bool
+echocardiogram: EchocardiogramData
+ecg: ECGData
+nyha_class: NYHAClass
+chest_pain_present: bool
+dyspnea_present: bool
+syncope_present: bool
+palpitations_present: bool
+edema_present: bool
+orthopnea_present: bool
+pulmonary_rales_present: bool
+jugular_venous_distension_present: bool
+troponin_value: float | None
+troponin_upper_reference_limit: float | None
+bnp_pg_ml: float | None
+nt_probnp_pg_ml: float | None
+potassium_mmol_l: float | None
+magnesium_mg_dl: float | None
+calcium_mg_dl: float | None
+current_anticoagulant: AnticoagulantType
+medications: list[str]
+qt_prolonging_medications: list[str]
+antiplatelet_medications: list[str]
+diagnoses: list[str]
+symptoms: list[str]
+metadata: dict[str, Any]
+
+==============================================================================
+BloodPressureMeasurement
+==============================================================================
+systolic_mm_hg: float
+diastolic_mm_hg: float
+heart_rate_bpm: float | None
+context: BloodPressureContext
+measurement_date: str | None
+arm: str | None
+position: str | None
+device_type: str | None
+rested_before_measurement: bool | None
+validated_device: bool | None
+symptoms: list[str]
+metadata: dict[str, Any]
+
+==============================================================================
+LipidProfile
+==============================================================================
+total_cholesterol: float | None
+ldl_cholesterol: float | None
+hdl_cholesterol: float | None
+triglycerides: float | None
+non_hdl_cholesterol: float | None
+apolipoprotein_b: float | None
+lipoprotein_a: float | None
+unit: LipidUnit
+fasting: bool | None
+collected_at: str | None
+metadata: dict[str, Any]
+
+==============================================================================
+ECGData
+==============================================================================
+heart_rate_bpm: float | None
+qt_interval_ms: float | None
+rr_interval_ms: float | None
+qrs_duration_ms: float | None
+corrected_qt_ms: float | None
+rhythm: str | None
+atrial_fibrillation_present: bool
+ventricular_arrhythmia_present: bool
+bundle_branch_block_present: bool
+paced_rhythm: bool
+report_date: str | None
+metadata: dict[str, Any]
+
+==============================================================================
+EchocardiogramData
+==============================================================================
+left_ventricular_ejection_fraction_percent: float | None
+previous_ejection_fraction_percent: float | None
+left_atrial_volume_index_ml_m2: float | None
+e_over_e_prime: float | None
+tricuspid_regurgitation_velocity_m_s: float | None
+left_ventricular_hypertrophy: bool | None
+right_ventricular_dysfunction: bool | None
+significant_valvular_disease: bool | None
+report_date: str | None
+metadata: dict[str, Any]
